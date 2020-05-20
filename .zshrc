@@ -55,7 +55,7 @@ ZSH_THEME="honukai"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -137,7 +137,6 @@ function extract {
   fi
 }
 source ~/.dotfiles/lib/zsh-autoenv/autoenv.zsh
-source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="/usr/local/sbin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
@@ -192,3 +191,9 @@ lazytouch()
 	touch $1
 	vim $1
 }
+
+## Speed repeat rate when holding down key: int 1 is cool too, albeit slower.
+speed(){
+  defaults write NSGlobalDomain KeyRepeat -int 0
+}
+
